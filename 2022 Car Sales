@@ -1,0 +1,52 @@
+Hello my name is Jordan Hayes this is my SQL Portfolio 
+
+If you want the dataset for the work i'll link the website below.
+https://www.kaggle.com/datasets/missionjee/car-sales-report
+
+# Which COMPANY created the most cars?
+
+Select company,
+count(model)
+from car_sales.2022
+group by company
+order by count(model) DESC
+
+# What's the sum of all the prices?
+Select sum(price)
+from car_sales.2022
+
+# Who bought the most expensive car?
+
+select 
+customer_name, 
+annual_income, 
+company, 
+model, 
+price, 
+body_style
+from car_sales.2022
+order by price DESC
+limit 1
+
+# Which BODY STYLE sold the most?
+
+Select body_style,
+count(body_style)
+from car_sales.2022
+group by body_style
+order by count(body_style) ASC
+
+# Which GENDER bought the most cars with an ANNUAL INCOME over 100000?
+ 
+select gender, count(gender)
+from car_sales.2022
+where annual_income >= 100000
+group by gender
+
+# How many cars did HONDA sell and the which model?
+
+SELECT company, model, count(model)
+from car_sales.2022
+WHERE company = 'Honda'
+group by model
+
