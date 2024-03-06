@@ -1,0 +1,27 @@
+the kaggle dataset: https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks?resource=download&select=sp500_companies.csv
+
+What is the price of stock right now?
+SELECT *
+FROM sp.500
+order by currentprice DESC
+
+Count all the company that share the same sectors?
+SELECT sector, count(sector)
+FROM sp.500 
+group by sector
+
+Find which Technology company has the largest employee base?
+SELECT fulltime_employemes, sector
+FROM sp.500 
+where sector = 'Technology' 
+order by fulltime_employees DESC
+limit 1
+
+Which company had the best revenue growth?
+SELECT 
+company, 
+revenue_growth
+FROM sp.500 
+order by revenue_growth DESC
+limit 1
+
