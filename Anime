@@ -1,0 +1,33 @@
+#In this SQL code, I'm querying a database holding anime data to answer question about a dataset.
+
+#1. How many Movies titles are their?
+SELECT tv_movie, count(tv_movie)
+FROM anime.rating
+where tv_movie = 'Movie'
+
+#2. What is the number 1 rated action genre?
+SELECT 
+name, 
+rating,
+genre_1
+FROM anime.rating
+where genre_1  = 'Action'
+order by rating DESC
+limit 1
+
+#3. What's the longest series
+SELECT 
+name, 
+tv_movie, 
+episodes
+FROM anime.rating
+where tv_movie = 'TV'
+order by episodes DESC
+
+#4. what are the top 5 shows with the largest members?
+SELECT 
+name, 
+members
+FROM anime.rating
+order by members DESC
+limit 5
