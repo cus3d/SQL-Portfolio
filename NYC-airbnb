@@ -1,0 +1,38 @@
+1) which neighbourhood has the most airbnb in new York City?
+Select 
+  neighbourhood,
+  count(neighbourhood)
+from airbnb.nyc
+group by neighbourhood
+
+2) How much did each distric make?
+Select 
+  neighbourhood_group, 
+  sum(price)
+from airbnb.nyc
+group by neighbourhood_group
+
+3) What room has the most review?
+Select 
+	host_id, 
+	host_name, 
+	neighbourhood_group, 
+	neighbourhood, 
+	room_type, 
+	number_of_reviews
+FROM airbnb.nyc
+order by number_of_reviews DESC
+limit 1
+
+4) which host_id hahs the most airbnb under them?
+Select 
+	host_id, 
+	count(host_id)
+FROM airbnb.nyc
+group by host_id
+order by count(host_id) DESC
+
+5) who or what is '219517861'
+Select *
+FROM airbnb.nyc
+where host_id = '219517861'
